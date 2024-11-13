@@ -1,0 +1,38 @@
+.clickable-img {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .clickable-img:hover {
+    transform: scale(1.05);
+  }
+  
+  .jumbotron {
+    background-image: url('images/kpop-banner.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  #bandCarousel img {
+    max-height: 400px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #000; /* Optional: Adds a black background behind the image */
+  }
+  
+  /* Reduce the margin below the carousel */
+  .carousel {
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+  
+  /* Adjust padding for a more compact layout */
+  #band-selection {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Compact hero section */
+  .jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }  

@@ -4,28 +4,28 @@ let selectedQuestions = [];
 let answers = Array(totalQuestions).fill(null);
 let score = 0;
 
-// List of 20 BlackPink questions
+// List of 20 Enhypen questions
 const questions = [
-    { question: "Who is the leader of BLACKPINK?", answers: ["Jennie", "Jisoo", "Lisa", "Rosé"], correct: "Jisoo" },
-    { question: "Which year did BLACKPINK debut?", answers: ["2016", "2015", "2017", "2018"], correct: "2016" },
-    { question: "What is BLACKPINK's fandom called?", answers: ["Blink", "Army", "Once", "Reveluv"], correct: "Blink" },
-    { question: "Which BLACKPINK song has the most YouTube views?", answers: ["DDU-DU DDU-DU", "Kill This Love", "How You Like That", "Boombayah"], correct: "DDU-DU DDU-DU" },
-    { question: "Who is the main dancer of BLACKPINK?", answers: ["Lisa", "Jennie", "Jisoo", "Rosé"], correct: "Lisa" },
-    { question: "Which song marked BLACKPINK's debut?", answers: ["Boombayah", "Whistle", "Playing with Fire", "Stay"], correct: "Boombayah" },
-    { question: "Which member is known as the 'Golden Maknae'?", answers: ["Lisa", "Jennie", "Jisoo", "Rosé"], correct: "Lisa" },
-    { question: "Which BLACKPINK song featured Selena Gomez?", answers: ["Ice Cream", "Lovesick Girls", "Pretty Savage", "Kill This Love"], correct: "Ice Cream" },
-    { question: "What does 'BLACKPINK' stand for?", answers: ["Beauty and Strength", "Class and Elegance", "Black and Pink", "Bold and Pretty"], correct: "Beauty and Strength" },
-    { question: "Which BLACKPINK member was the last to join?", answers: ["Lisa", "Jennie", "Jisoo", "Rosé"], correct: "Rosé" },
-    { question: "Who is the lead rapper of BLACKPINK?", answers: ["Jennie", "Lisa", "Jisoo", "Rosé"], correct: "Jennie" },
-    { question: "Which member is known for her deep voice?", answers: ["Jisoo", "Jennie", "Lisa", "Rosé"], correct: "Jisoo" },
-    { question: "Which member is called the 'Human Chanel'?", answers: ["Jennie", "Jisoo", "Lisa", "Rosé"], correct: "Jennie" },
-    { question: "Which song won BLACKPINK their first music show award?", answers: ["Whistle", "Boombayah", "Kill This Love", "Playing with Fire"], correct: "Whistle" },
-    { question: "Which BLACKPINK album was the first to hit #1 on the Billboard 200?", answers: ["THE ALBUM", "Square Up", "Kill This Love", "Blackpink In Your Area"], correct: "THE ALBUM" },
-    { question: "Which member often says 'I love you' in multiple languages?", answers: ["Lisa", "Rosé", "Jisoo", "Jennie"], correct: "Lisa" },
-    { question: "Which song did BLACKPINK perform at Coachella?", answers: ["Kill This Love", "How You Like That", "DDU-DU DDU-DU", "Whistle"], correct: "Kill This Love" },
-    { question: "Which BLACKPINK member is from Australia?", answers: ["Rosé", "Jennie", "Jisoo", "Lisa"], correct: "Rosé" },
-    { question: "Who is known as the 'Queen of Dance' in BLACKPINK?", answers: ["Lisa", "Jisoo", "Jennie", "Rosé"], correct: "Lisa" },
-    { question: "Which song did BLACKPINK collaborate with Lady Gaga?", answers: ["Sour Candy", "Ice Cream", "Bet You Wanna", "Love to Hate Me"], correct: "Sour Candy" }
+    { question: "Which year did ENHYPEN debut?", answers: ["2020", "2019", "2021", "2018"], correct: "2020" },
+    { question: "What is ENHYPEN's fandom called?", answers: ["ENGENE", "MOA", "ARMY", "STAY"], correct: "ENGENE" },
+    { question: "Which reality show formed ENHYPEN?", answers: ["I-LAND", "Produce 101", "Under Nineteen", "The Unit"], correct: "I-LAND" },
+    { question: "What is the title of ENHYPEN's debut album?", answers: ["BORDER: DAY ONE", "DIMENSION: DILEMMA", "MANIFESTO: DAY 1", "FEVER: Part 1"], correct: "BORDER: DAY ONE" },
+    { question: "Who is the leader of ENHYPEN?", answers: ["Jungwon", "Heeseung", "Sunghoon", "Jay"], correct: "Jungwon" },
+    { question: "Which ENHYPEN member is known for figure skating?", answers: ["Sunghoon", "Jake", "Sunoo", "Ni-ki"], correct: "Sunghoon" },
+    { question: "Which ENHYPEN song features the lyrics 'Drunk-Dazed'?", answers: ["Drunk-Dazed", "Fever", "Given-Taken", "Tamed-Dashed"], correct: "Drunk-Dazed" },
+    { question: "Which member of ENHYPEN is the youngest (Maknae)?", answers: ["Ni-ki", "Jungwon", "Sunoo", "Jay"], correct: "Ni-ki" },
+    { question: "Which ENHYPEN album features the song 'Fever'?", answers: ["BORDER: CARNIVAL", "BORDER: DAY ONE", "DIMENSION: ANSWER", "MANIFESTO: DAY 1"], correct: "BORDER: CARNIVAL" },
+    { question: "Who is the main vocalist of ENHYPEN?", answers: ["Heeseung", "Jay", "Jungwon", "Jake"], correct: "Heeseung" },
+    { question: "Which member of ENHYPEN was born in Australia?", answers: ["Jake", "Sunghoon", "Heeseung", "Sunoo"], correct: "Jake" },
+    { question: "What is the title of ENHYPEN's first Japanese single?", answers: ["Forget Me Not", "Always", "Given-Taken (Japanese Version)", "Dilemma"], correct: "Forget Me Not" },
+    { question: "Which ENHYPEN member is known for his dancing skills?", answers: ["Ni-ki", "Jay", "Jungwon", "Heeseung"], correct: "Ni-ki" },
+    { question: "Which song by ENHYPEN has the theme of a summer sports festival?", answers: ["Tamed-Dashed", "Drunk-Dazed", "Fever", "Given-Taken"], correct: "Tamed-Dashed" },
+    { question: "Which member of ENHYPEN is known for his deep voice?", answers: ["Jay", "Heeseung", "Sunghoon", "Jake"], correct: "Jay" },
+    { question: "Which song marked ENHYPEN's first music show win?", answers: ["Given-Taken", "Fever", "Drunk-Dazed", "Tamed-Dashed"], correct: "Given-Taken" },
+    { question: "Which ENHYPEN member is called 'Ice Prince'?", answers: ["Sunghoon", "Ni-ki", "Sunoo", "Jake"], correct: "Sunghoon" },
+    { question: "Which album features the song 'Polaroid Love'?", answers: ["DIMENSION: ANSWER", "BORDER: DAY ONE", "DIMENSION: DILEMMA", "MANIFESTO: DAY 1"], correct: "DIMENSION: ANSWER" },
+    { question: "Which ENHYPEN song is known for its vampire concept?", answers: ["Given-Taken", "Fever", "Drunk-Dazed", "Tamed-Dashed"], correct: "Given-Taken" },
+    { question: "What is the title of ENHYPEN's official fan meeting?", answers: ["EN-CONNECT", "ENGENE ZONE", "I-LAND REUNION", "CONNECT: ENHYPEN"], correct: "EN-CONNECT" }
 ];
 
   
@@ -54,7 +54,7 @@ function generateQuestionNav() {
   
 // Function to update the leaderboard
 function updateLeaderboard() {
-  const leaderboard = JSON.parse(localStorage.getItem('blackPinkLeaderBoard')) || [];
+  const leaderboard = JSON.parse(localStorage.getItem('enhypenLeaderboard')) || [];
   const leaderboardList = document.getElementById('leaderboard-list');
   leaderboardList.innerHTML = '';
 
@@ -69,13 +69,13 @@ function updateLeaderboard() {
 
 // Function to check if a saved session exists
 function checkForSavedSession() {
-  return localStorage.getItem('blacPinkAnswers') !== null;
+  return localStorage.getItem('enhypenAnswers') !== null;
 }
 
 // Function to start a new quiz
 function startNewQuiz() {
-    localStorage.removeItem('blacPinkAnswers');
-    localStorage.removeItem('blackPinkIndex');
+    localStorage.removeItem('enhypenAnswers');
+    localStorage.removeItem('enhypenCurrentIndex');
     answers = Array(totalQuestions).fill(null);
     currentQuestionIndex = 0;
     score = 0;
@@ -96,9 +96,9 @@ function hideControls() {
   
 // Function to resume a saved quiz session
 function resumeQuiz() {
-    const savedAnswers = JSON.parse(localStorage.getItem('blacPinkAnswers'));
-    const savedIndex = parseInt(localStorage.getItem('blackPinkIndex'), 10);
-    const savedQuestions = JSON.parse(localStorage.getItem('blackPinkSelectedQuestions'));
+    const savedAnswers = JSON.parse(localStorage.getItem('enhypenAnswers'));
+    const savedIndex = parseInt(localStorage.getItem('enhypenCurrentIndex'), 10);
+    const savedQuestions = JSON.parse(localStorage.getItem('enhypenSelectedQuestions'));
 
     // Check if there's saved progress
     if (savedAnswers && !isNaN(savedIndex) && savedQuestions) {
@@ -119,9 +119,9 @@ function resumeQuiz() {
 
 // Function to save progress
 function saveProgress() {
-    localStorage.setItem('blacPinkAnswers', JSON.stringify(answers));
-    localStorage.setItem('blackPinkIndex', currentQuestionIndex);
-    localStorage.setItem('blackPinkSelectedQuestions', JSON.stringify(selectedQuestions));
+    localStorage.setItem('enhypenAnswers', JSON.stringify(answers));
+    localStorage.setItem('enhypenCurrentIndex', currentQuestionIndex);
+    localStorage.setItem('enhypenSelectedQuestions', JSON.stringify(selectedQuestions));
   }
   
 
@@ -131,11 +131,11 @@ if (confirm("Do you want to save your progress?")) {
     alert("Progress saved. You can resume later.");
 } else {
     // Clear saved progress if the user chooses not to save
-    localStorage.removeItem('blacPinkAnswers');
-    localStorage.removeItem('blackPinkIndex');
-    localStorage.removeItem('blackPinkSelectedQuestions');
+    localStorage.removeItem('enhypenAnswers');
+    localStorage.removeItem('enhypenCurrentIndex');
+    localStorage.removeItem('enhypenSelectedQuestions');
 }
-window.location.href = "blackPink.html";
+window.location.href = "enhypen.html";
 }
 
 
@@ -196,7 +196,7 @@ function saveAnswer(answer, selectedButton) {
 // Submit the quiz
 function submitQuiz() {
     score = answers.filter((ans, i) => ans === selectedQuestions[i].correct).length;
-    const leaderboard = JSON.parse(localStorage.getItem('blackPinkLeaderBoard')) || [];
+    const leaderboard = JSON.parse(localStorage.getItem('enhypenLeaderboard')) || [];
 
     // Check if the score qualifies for the top 3
     if (leaderboard.length < 3 || score > leaderboard[2].score) {
@@ -204,18 +204,18 @@ function submitQuiz() {
         if (playerName) {
             leaderboard.push({ name: playerName, score });
             leaderboard.sort((a, b) => b.score - a.score);
-            localStorage.setItem('blackPinkLeaderBoard', JSON.stringify(leaderboard.slice(0, 3)));
+            localStorage.setItem('enhypenLeaderboard', JSON.stringify(leaderboard.slice(0, 3)));
         }
     }
 
     // Clear saved progress after submission
-    localStorage.removeItem('blacPinkAnswers');
-    localStorage.removeItem('blackPinkIndex');
-    localStorage.removeItem('blackPinkSelectedQuestions');
+    localStorage.removeItem('enhypenAnswers');
+    localStorage.removeItem('enhypenCurrentIndex');
+    localStorage.removeItem('enhypenSelectedQuestions');
 
     // Display score without any save progress prompt
     alert(`Quiz completed! Your score: ${score} / ${totalQuestions}. Returning to the main page.`);
-    window.location.href = "blackPink.html";
+    window.location.href = "enhypen.html";
 }
 
 

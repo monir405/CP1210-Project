@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-pop Trivia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="jumbotron bg-dark text-white text-center py-5 mb-4 ">
+    <h1 class="display-4">K-pop Trivia Challenge</h1>
+    <p class="lead">Test your knowledge of the hottest K-pop bands!</p>
+    <button class="btn btn-primary btn-lg" onclick="scrollToBands()">Get Started</button>
+  </div>
+
+  <!-- Carousel for Featured Bands -->
+  <div id="bandCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/bts.png" class="d-block w-100" alt="BTS">
+        <div class="carousel-caption">
+          <h5>BTS</h5>
+          <p>Experience the magic of the Bangtan Boys.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/blackpink.png" class="d-block w-100" alt="BLACKPINK">
+        <div class="carousel-caption">
+          <h5>BLACKPINK</h5>
+          <p>Are you ready for the revolution?</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/twice.png" class="d-block w-100" alt="TWICE">
+        <div class="carousel-caption">
+          <h5>TWICE</h5>
+          <p>Feel the heartbeat of the nation’s girl group.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/enhypen.png" class="d-block w-100" alt="ENHYPEN">
+        <div class="carousel-caption">
+          <h5>ENHYPEN</h5>
+          <p>Ready to rise with the new wave of K-pop stars?</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bandCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bandCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Band Selection Cards -->
+  <div class="container text-center">
+    <div class="row" id="band-selection">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card">
+          <img id="bts-img" src="images/bts.png" class="card-img-top clickable-img" alt="BTS">
+          <div class="card-body">
+            <h5 class="card-title">BTS</h5>
+            <button class="btn btn-outline-primary" onclick="loadBandQuiz('bts')">Play BTS Trivia</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card">
+          <img id="blackpink-img" src="images/blackpink.png" class="card-img-top clickable-img" alt="BLACKPINK">
+          <div class="card-body">
+            <h5 class="card-title">BLACKPINK</h5>
+            <button class="btn btn-outline-primary" onclick="loadBandQuiz('blackpink')">Play BLACKPINK Trivia</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card">
+          <img id="twice-img" src="images/twice.png" class="card-img-top clickable-img" alt="TWICE">
+          <div class="card-body">
+            <h5 class="card-title">TWICE</h5>
+            <button class="btn btn-outline-primary" onclick="loadBandQuiz('twice')">Play TWICE Trivia</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card">
+          <img id="enhypen-img" src="images/enhypen.png" class="card-img-top clickable-img" alt="ENHYPEN">
+          <div class="card-body">
+            <h5 class="card-title">ENHYPEN</h5>
+            <button class="btn btn-outline-primary" onclick="loadBandQuiz('enhypen')">Play ENHYPEN Trivia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>Follow us for more K-pop fun!</p>
+    <a href="#" class="btn btn-outline-light btn-sm mx-2">Twitter</a>
+    <a href="#" class="btn btn-outline-light btn-sm mx-2">Instagram</a>
+    <a href="#" class="btn btn-outline-light btn-sm mx-2">YouTube</a>
+  </footer>
+
+  <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
