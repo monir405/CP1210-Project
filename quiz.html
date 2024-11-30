@@ -11,23 +11,16 @@
     <h1 id="quiz-title">K-pop Trivia</h1>
     <p id="quiz-content">Loading quiz content...</p>
   </div>
-
   <script>
-    // Get the band name from the query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const band = urlParams.get('band');
-
-    // Update the page title and content
     document.getElementById('quiz-title').innerText = `${band.toUpperCase()} Trivia`;
-
-    // Dynamically load the selected band's JavaScript file
     const script = document.createElement('script');
     script.src = `subpages/${band}.js`;
     script.onload = () => console.log(`${band}.js loaded successfully`);
     script.onerror = () => console.error(`Failed to load ${band}.js`);
     document.body.appendChild(script);
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
