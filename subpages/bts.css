@@ -53,7 +53,7 @@ width: 20%;
 #leaderboard-list .list-group-item:hover {
     background-color: #333333; 
 }
-.btn-primary, .btn-success, .prev-btn, .next-btn, .submit-btn {
+.btn-start, .btn-prev,  .btn-submit {
     background-color: #007bff;
     border: none;
     border-radius: 8px;
@@ -61,15 +61,31 @@ width: 20%;
     font-size: 16px;
     margin-top: 20px;
 }
-.btn-primary:hover {
+
+.btn-resume, .btn-next, .btn-leave  {
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn-start:hover ,.btn-prev:hover,  .btn-submit:hover, .btn-resume:hover, .btn-next:hover, .btn-leave:hover {
     background-color: #0056b3;
 }
 .button-container {
     display: flex;
     justify-content: center;
     gap: 10px; 
-    margin-top: 18px; 
-    margin-bottom: 30px;
+    margin-top: 0; 
+    margin-bottom: 0%;
+}
+#button-container1 {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 20px; 
 }
 .button-container .btn {
 flex: 1; 
@@ -91,6 +107,31 @@ max-width: 200px;
 .active-slide {
     display: block;
 }
+#submit-btn{
+    background-color: green;
+}
+#leave-quiz-btn{
+    background-color: red;
+}
+#prev-btn, #next-btn{
+    background-color: white;
+    color: blue;
+}
+#question-nav button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%; /* Ensures buttons are full width */
+    text-align: left; /* Align text to the left */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color changes */
+}
 
-
-  
+#question-nav button.answered {
+    background-color: white; /* Background turns white */
+    color: blue; /* Font turns blue */
+    border: 1px solid blue; /* Optional: Border matches font color */
+    transition: background-color 0.3s, color 0.3s; 
+}

@@ -27,8 +27,8 @@
       </div>
     </div>
     <div class="button-container">
-      <button id="start-new-btn" class="btn btn-primary">Start New Quiz</button>
-      <button id="resume-quiz-btn" class="btn btn-success">Resume Quiz</button>
+      <button id="start-new-btn" class="btn btn-start">Start New Quiz</button>
+      <button id="resume-quiz-btn" class="btn btn-resume">Resume Quiz</button>
     </div>
     <div id="quiz-section" style="display: none;">
       <div class="d-flex">
@@ -40,12 +40,16 @@
           <h3 id="question-text"></h3>
           <div id="answer-buttons"></div>
           <p id="answer-status" class="text-success"></p>
-          <button id="prev-btn" class="btn btn-secondary me-2">Previous</button>
-          <button id="next-btn" class="btn btn-primary">Next</button>
-          <button id="submit-btn" class="btn btn-warning mt-3">Submit Quiz</button>
+          <div id="button-container" class="button-container">
+            <button id="prev-btn" class="btn btn-prev">Previous</button>
+            <button id="next-btn" class="btn btn-next">Next</button>
+          </div>
+          <div id="button-container1" class="button-container">
+            <button id="submit-btn" class="btn btn-submit">Submit Quiz</button>
+            <button id="leave-quiz-btn" class="btn btn-leave ">Leave Quiz</button>
+          </div>
         </div>
       </div>
-      <button id="leave-quiz-btn" class="btn btn-danger mt-3">Leave Quiz</button>
     </div>
   </div>
   <script src="enhypen.js"></script>

@@ -4,6 +4,7 @@ let selectedQuestions = [];
 let answers = Array(totalQuestions).fill(null);
 let score = 0;
 let slideIndex = 0;
+let slideTimer;
 
 const questions = [
     { question: "Which year did ENHYPEN debut?", answers: ["2020", "2019", "2021", "2018"], correct: "2020" },
@@ -34,13 +35,21 @@ function showSlides() {
     slide.style.display = index === slideIndex ? 'block' : 'none';
   });
   slideIndex = (slideIndex + 1) % slides.length; 
-  setTimeout(showSlides, 2000); 
+  slideTimer = setTimeout(showSlides, 2000);
+}
+
+function stopSlides() {
+  clearTimeout(slideTimer); 
+  const slides = document.querySelectorAll('.slides');
+  slides.forEach(slide => {
+    slide.style.display = 'none'; 
+  });
 }
 
 function selectRandomQuestions() {
   selectedQuestions = questions.sort(() => Math.random() - 0.5).slice(0, totalQuestions);
   console.log("Selected Questions:", selectedQuestions);
-  }
+}
 
 function generateQuestionNav() {
   const questionNav = document.getElementById('question-nav');
@@ -49,11 +58,13 @@ function generateQuestionNav() {
       const button = document.createElement('button');
       button.classList.add('btn', 'btn-outline-secondary', 'mb-2');
       button.innerText = answers[i] ? `${i + 1} ✔️` : i + 1;
-      button.style.color = answers[i] ? 'green' : '';
+      if (answers[i]) {
+        button.classList.add('answered'); 
+      }      
       button.addEventListener('click', () => navigateToQuestion(i));
       questionNav.appendChild(button);
   }
-  }
+}
 
 function updateLeaderboard() {
   const leaderboard = JSON.parse(localStorage.getItem('btsLeaderboard')) || [];
@@ -65,14 +76,15 @@ function updateLeaderboard() {
   listItem.classList.add('list-group-item');
   listItem.innerText = `${crown} ${entry.name} - ${entry.score} points`;
   leaderboardList.appendChild(listItem);
-  });
-  }
+  }); 
+}
 
 function checkForSavedSession() {
   return localStorage.getItem('btsAnswers') !== null;
-  }
+}
 
 function startNewQuiz() {
+  stopSlides();
   localStorage.removeItem('btsAnswers');
   localStorage.removeItem('btsCurrentIndex');
   answers = Array(totalQuestions).fill(null);
@@ -80,7 +92,7 @@ function startNewQuiz() {
   score = 0;
   hideControls();
   startQuiz();
-  }
+}
 
 function hideControls() {
   document.getElementById('leaderboard').style.display = 'none';
@@ -88,9 +100,10 @@ function hideControls() {
   document.getElementById('resume-quiz-btn').style.display = 'none';
   document.getElementById('leave-quiz-btn').style.display = 'block';
   document.getElementById('quiz-section').style.display = 'block';
-  }  
+}  
 
 function resumeQuiz() {
+  stopSlides();
   const savedAnswers = JSON.parse(localStorage.getItem('btsAnswers'));
   const savedIndex = parseInt(localStorage.getItem('btsCurrentIndex'), 10);
   const savedQuestions = JSON.parse(localStorage.getItem('btsSelectedQuestions'));
@@ -98,7 +111,6 @@ function resumeQuiz() {
       answers = savedAnswers;
       currentQuestionIndex = savedIndex;
       selectedQuestions = savedQuestions;
-
       hideControls();
       generateQuestionNav(); 
       showQuestion();
@@ -106,13 +118,13 @@ function resumeQuiz() {
       alert("No previous progress found.");
       document.getElementById('resume-quiz-btn').style.display = 'none';
   }
-  }
+}
 
 function saveProgress() {
   localStorage.setItem('btsAnswers', JSON.stringify(answers));
   localStorage.setItem('btsCurrentIndex', currentQuestionIndex);
   localStorage.setItem('btsSelectedQuestions', JSON.stringify(selectedQuestions));
-  }
+}
 
 function leaveQuiz() {
   if (confirm("Do you want to save your progress?")) {
@@ -124,13 +136,14 @@ function leaveQuiz() {
     localStorage.removeItem('btsSelectedQuestions');
   }
   window.location.href = "bts.html";
-  }
+}
 
 function startQuiz() {
   selectRandomQuestions();
   generateQuestionNav();
   showQuestion();
-  }
+}
+
 function showQuestion() {
   const currentQuestion = selectedQuestions[currentQuestionIndex];
   document.getElementById('question-text').innerText = currentQuestion.question;
@@ -149,7 +162,7 @@ function showQuestion() {
   document.getElementById('answer-status').innerText = answers[currentQuestionIndex] ? "Answer Saved" : "";
   generateQuestionNav(); 
   saveProgress(); 
-  }
+}
 
 function saveAnswer(answer, selectedButton) {
   answers[currentQuestionIndex] = answer;
@@ -158,7 +171,7 @@ function saveAnswer(answer, selectedButton) {
   document.getElementById('answer-status').innerText = "Answer Saved";
   generateQuestionNav(); 
   saveProgress(); 
-  }
+}
 
 function submitQuiz() {
   score = answers.filter((ans, i) => ans === selectedQuestions[i].correct).length;
@@ -176,26 +189,27 @@ function submitQuiz() {
   localStorage.removeItem('btsSelectedQuestions');
   alert(`Quiz completed! Your score: ${score} / ${totalQuestions}. Returning to the main page.`);
   window.location.href = "bts.html";
-  }
+}
 
 function navigateToQuestion(index) {
   currentQuestionIndex = index;
   showQuestion();
-  }
+}
 
 document.getElementById('prev-btn').addEventListener('click', () => {
   if (currentQuestionIndex > 0) {
     currentQuestionIndex--;
     showQuestion();
   }
-  });
+});
 
 document.getElementById('next-btn').addEventListener('click', () => {
   if (currentQuestionIndex < totalQuestions - 1) {
     currentQuestionIndex++;
     showQuestion();
   }
-  });
+});
+
 window.addEventListener('DOMContentLoaded', () => {
   updateLeaderboard();
   document.getElementById('resume-quiz-btn').style.display = checkForSavedSession() ? 'block' : 'none';
