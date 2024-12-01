@@ -123,15 +123,21 @@ max-width: 200px;
     border: 1px solid white;
     margin-bottom: 10px;
     padding: 10px;
-    width: 100%; /* Ensures buttons are full width */
-    text-align: left; /* Align text to the left */
+    width: 100%; 
+    text-align: left; 
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color changes */
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 #question-nav button.answered {
-    background-color: white; /* Background turns white */
-    color: blue; /* Font turns blue */
-    border: 1px solid blue; /* Optional: Border matches font color */
+    background-color: white; 
+    color: blue; 
+    border: 1px solid blue; 
     transition: background-color 0.3s, color 0.3s; 
 }
+#bandCarousel img {
+    max-height: 400px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #000; 
+  }
